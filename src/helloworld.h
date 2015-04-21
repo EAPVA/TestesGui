@@ -17,13 +17,11 @@ public:
 	virtual ~ExampleWindow();
 
 protected:
-	//Signal handlers:
-	void on_button_quit();
-	void on_notebook_switch_page(
-		Gtk::Widget* page,
+	/* Signal handlers: */
+	void on_notebook_switch_page(Gtk::Widget* page,
 		guint page_num);
 
-	//Child widgets:
+	/* Child widgets: */
 	Gtk::Box m_VBox;
 	Gtk::Notebook m_Notebook;
 

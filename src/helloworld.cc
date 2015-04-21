@@ -38,13 +38,7 @@ ExampleWindow::~ExampleWindow()
 {
 }
 
-void ExampleWindow::on_button_quit()
-{
-	hide();
-}
-
-void ExampleWindow::on_notebook_switch_page(
-	Gtk::Widget* /* page */,
+void ExampleWindow::on_notebook_switch_page(Gtk::Widget* /* page */,
 	guint page_num)
 {
 	std::cout << "Switched to tab with index " << page_num << std::endl;
