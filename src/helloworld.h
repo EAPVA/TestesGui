@@ -21,15 +21,26 @@ protected:
 	void on_notebook_switch_page(Gtk::Widget* page,
 		guint page_num);
 
-	/* Child widgets: */
-	Gtk::Box m_VBox;
-	Gtk::Notebook m_Notebook;
+	// Things on the window
+	Gtk::Box _win_box;
+	Gtk::Notebook _notebook;
 
-	Gtk::Label m_LabelSourceImages;
-	Gtk::Label m_LabelPartitionSelection;
-	Gtk::Label m_LabelTraining;
-	Gtk::Label m_LabelResult;
-	Gtk::Label m_LabelTest;
+	// First TAB: Image Database
+	Gtk::Box _imgdb_box;
+	Gtk::Label _imgdb_label_1;
+	Gtk::Label _imgdb_label_2;
+
+	// Second TAB: Image Partition Selection
+	Gtk::Label _imgpart_label;
+
+	// Third TAB: Training
+	Gtk::Label _train_label;
+
+	// Forth TAB: Training Results
+	Gtk::Label _trainresult_label;
+
+	// Fifth TAG: Testing
+	Gtk::Label _testing_label;
 };
 
 #endif /* SRC_HELLOWORLD_H_ */

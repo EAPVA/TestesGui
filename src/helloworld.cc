@@ -9,26 +9,32 @@
 #include "helloworld.h"
 
 ExampleWindow::ExampleWindow() :
-	m_VBox(Gtk::ORIENTATION_VERTICAL)
+	_win_box(Gtk::ORIENTATION_VERTICAL),
+	_imgdb_box(Gtk::ORIENTATION_HORIZONTAL),
+	_imgdb_label_1("Yay!!!"),
+	_imgdb_label_2("Yoy!!!")
 {
 	set_title("Gtk::Notebook example");
 	set_border_width(10);
 	set_default_size(400, 200);
 
-	add (m_VBox);
+	add (_win_box);
 
 	//Add the Notebook, with the button underneath:
-	m_Notebook.set_border_width(10);
-	m_VBox.pack_start(m_Notebook);
+	_notebook.set_border_width(10);
+	_win_box.pack_start(_notebook);
 
 	//Add the Notebook pages:
-	m_Notebook.append_page(m_LabelSourceImages, "Image Selection");
-	m_Notebook.append_page(m_LabelPartitionSelection, "Selection Partition");
-	m_Notebook.append_page(m_LabelTraining, "Training");
-	m_Notebook.append_page(m_LabelResult, "Training Results");
-	m_Notebook.append_page(m_LabelTest, "Tests");
+	_imgdb_box.pack_start(_imgdb_label_1);
+	_imgdb_box.pack_start(_imgdb_label_2);
+	_notebook.append_page(_imgdb_box, "Image Selection");
 
-	m_Notebook.signal_switch_page().connect(
+	_notebook.append_page(_imgpart_label, "Selection Partition");
+	_notebook.append_page(_train_label, "Training");
+	_notebook.append_page(_trainresult_label, "Training Results");
+	_notebook.append_page(_testing_label, "Tests");
+
+	_notebook.signal_switch_page().connect(
 		sigc::mem_fun(*this, &ExampleWindow::on_notebook_switch_page));
 
 	show_all_children();
