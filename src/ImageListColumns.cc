@@ -11,4 +11,5 @@ ImageListColumns::ImageListColumns()
 {
 	add (m_col_text);
 	add (m_col_number);
+	add (m_col_icon);
 }

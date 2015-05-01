@@ -15,8 +15,9 @@ class ImageListColumns: public Gtk::TreeModelColumnRecord
 public:
 	ImageListColumns();
 
-	Gtk::TreeModelColumn<Glib::ustring> m_col_text;
-	Gtk::TreeModelColumn<int> m_col_number;
+	Gtk::TreeModelColumn< Glib::ustring > m_col_text;
+	Gtk::TreeModelColumn< int > m_col_number;
+	Gtk::TreeModelColumn< Glib::RefPtr< Gdk::Pixbuf > > m_col_icon;
 };
 
 #endif /* IMAGELISTCOLUMNS_H_ */

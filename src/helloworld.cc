@@ -32,12 +32,26 @@ ExampleWindow::ExampleWindow() :
 
 	// Notebook Page 1: ImageDatabase
 	_imgdb_liststore = Gtk::ListStore::create(_imgdb_col);
-	Gtk::TreeModel::Row row = *_imgdb_liststore->append();
-	row[_imgdb_col.m_col_number] = 1234;
-	row[_imgdb_col.m_col_text] = "Someothertext";
+	Gtk::TreeModel::Row row;
+	for(int i = 0; i < 2; i++)
+	{
+		Gtk::TreeModel::Row row = *_imgdb_liststore->append();
+		row[_imgdb_col.m_col_number] = i + 1;
+		row[_imgdb_col.m_col_text] = Glib::ustring::format("test ", i);
+
+		Glib::RefPtr < Gdk::Pixbuf > fullimg;
+		fullimg =
+			Gdk::Pixbuf::create_from_file(
+				"/home/xyko/u/IntrVisComput/opencv-2.4.10/modules/gpu/perf4au/im2_1280x800.jpg");
+		Glib::RefPtr < Gdk::Pixbuf > thumbnail = fullimg->scale_simple(144, 144,
+			Gdk::INTERP_BILINEAR);
+		row[_imgdb_col.m_col_icon] = thumbnail;
+	}
+
 	_imgdb_tv.set_model(_imgdb_liststore);
 	_imgdb_tv.append_column("id", _imgdb_col.m_col_number);
 	_imgdb_tv.append_column("text", _imgdb_col.m_col_text);
+	_imgdb_tv.append_column("icon", _imgdb_col.m_col_icon);
 
 	_imgdb_col1.set_border_width(5);
 	_imgdb_col1.pack_start(_imgdb_label_1, Gtk::PACK_SHRINK);
@@ -49,16 +63,16 @@ ExampleWindow::ExampleWindow() :
 	_imgdb_box.pack_start(_imgdb_label_4);
 	_notebook.append_page(_imgdb_box, "Image Database");
 
-	// Notebook Page 2: Image Partition Selection
+// Notebook Page 2: Image Partition Selection
 	_notebook.append_page(_imgpart_label, "Selection Partition");
 
-	// Notebook Page 3: Training
+// Notebook Page 3: Training
 	_notebook.append_page(_train_label, "Training");
 
-	// Notebook Page 4: Training Result
+// Notebook Page 4: Training Result
 	_notebook.append_page(_trainresult_label, "Training Results");
 
-	// Notebook Page 5: Tests
+// Notebook Page 5: Tests
 	_notebook.append_page(_testing_label, "Tests");
 
 	_notebook.signal_switch_page().connect(
