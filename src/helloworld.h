@@ -9,6 +9,7 @@
 #define SRC_HELLOWORLD_H_
 
 #include <gtkmm.h>
+#include <ImageListColumns.h>
 
 class ExampleWindow: public Gtk::Window
 {
@@ -27,8 +28,23 @@ protected:
 
 	// First TAB: Image Database
 	Gtk::Box _imgdb_box;
+
+	// treeview
+	Gtk::TreeView _imgdb_tv;
+	ImageListColumns _imgdb_col;
+	Glib::RefPtr<Gtk::ListStore> _imgdb_liststore;
+
+	Gtk::Box _imgdb_col1;
 	Gtk::Label _imgdb_label_1;
+
+	Gtk::Box _imgdb_col2;
 	Gtk::Label _imgdb_label_2;
+
+	Gtk::Box _imgdb_col3;
+	Gtk::Label _imgdb_label_3;
+
+	Gtk::Box _imgdb_col4;
+	Gtk::Label _imgdb_label_4;
 
 	// Second TAB: Image Partition Selection
 	Gtk::Label _imgpart_label;
