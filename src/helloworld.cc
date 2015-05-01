@@ -12,12 +12,12 @@ ExampleWindow::ExampleWindow() :
 	_win_box(Gtk::ORIENTATION_VERTICAL),
 	_imgdb_box(Gtk::ORIENTATION_HORIZONTAL),
 	_imgdb_col1(Gtk::ORIENTATION_VERTICAL),
-	_imgdb_col2(Gtk::ORIENTATION_VERTICAL),
-	_imgdb_col3(Gtk::ORIENTATION_VERTICAL),
-	_imgdb_col4(Gtk::ORIENTATION_VERTICAL),
 	_imgdb_label_1("Lista Completa"),
+	_imgdb_col2(Gtk::ORIENTATION_VERTICAL),
 	_imgdb_label_2("L2"),
+	_imgdb_col3(Gtk::ORIENTATION_VERTICAL),
 	_imgdb_label_3("L3"),
+	_imgdb_col4(Gtk::ORIENTATION_VERTICAL),
 	_imgdb_label_4("L4")
 {
 	set_title("Gtk::Notebook example");
@@ -63,16 +63,16 @@ ExampleWindow::ExampleWindow() :
 	_imgdb_box.pack_start(_imgdb_label_4);
 	_notebook.append_page(_imgdb_box, "Image Database");
 
-// Notebook Page 2: Image Partition Selection
+	// Notebook Page 2: Image Partition Selection
 	_notebook.append_page(_imgpart_label, "Selection Partition");
 
-// Notebook Page 3: Training
+	// Notebook Page 3: Training
 	_notebook.append_page(_train_label, "Training");
 
-// Notebook Page 4: Training Result
+	// Notebook Page 4: Training Result
 	_notebook.append_page(_trainresult_label, "Training Results");
 
-// Notebook Page 5: Tests
+	// Notebook Page 5: Tests
 	_notebook.append_page(_testing_label, "Tests");
 
 	_notebook.signal_switch_page().connect(
