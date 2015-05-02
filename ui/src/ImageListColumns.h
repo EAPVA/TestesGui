@@ -10,6 +10,11 @@
 
 #include <gtkmm.h>
 
+namespace Ghog
+{
+namespace Ui
+{
+
 class ImageListColumns: public Gtk::TreeModelColumnRecord
 {
 public:
@@ -19,5 +24,8 @@ public:
 	Gtk::TreeModelColumn< int > m_col_number;
 	Gtk::TreeModelColumn< Glib::RefPtr< Gdk::Pixbuf > > m_col_icon;
 };
+
+}
+}
 
 #endif /* IMAGELISTCOLUMNS_H_ */

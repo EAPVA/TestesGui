@@ -5,7 +5,10 @@
  *      Author: Francisco D. Kurpiel
  */
 
+#include <gtkmm.h>
 #include <ImageListColumns.h>
+
+using namespace Ghog::Ui;
 
 ImageListColumns::ImageListColumns()
 {

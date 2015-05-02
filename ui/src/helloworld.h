@@ -11,6 +11,11 @@
 #include <gtkmm.h>
 #include <ImageListColumns.h>
 
+namespace Ghog
+{
+namespace Ui
+{
+
 class ExampleWindow: public Gtk::Window
 {
 public:
@@ -32,7 +37,7 @@ protected:
 	// treeview
 	Gtk::TreeView _imgdb_tv;
 	Gtk::ScrolledWindow _imgdb_scroll;
-	ImageListColumns _imgdb_col;
+	Ghog::Ui::ImageListColumns _imgdb_col;
 	Glib::RefPtr< Gtk::ListStore > _imgdb_liststore;
 
 	Gtk::Box _imgdb_col1;
@@ -59,5 +64,7 @@ protected:
 	// Fifth TAG: Testing
 	Gtk::Label _testing_label;
 };
+}
+}
 
 #endif /* SRC_HELLOWORLD_H_ */

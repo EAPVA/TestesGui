@@ -8,6 +8,8 @@
 #include <iostream>
 #include "helloworld.h"
 
+using namespace Ghog::Ui;
+
 ExampleWindow::ExampleWindow() :
 	_win_box(Gtk::ORIENTATION_VERTICAL),
 	_imgdb_box(Gtk::ORIENTATION_HORIZONTAL),

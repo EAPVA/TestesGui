@@ -16,7 +16,7 @@ int main(int argc,
 	Glib::RefPtr < Gtk::Application > app = Gtk::Application::create(argc, argv,
 		"org.gtkmm.example");
 
-	ExampleWindow ew;
+	Ghog::Ui::ExampleWindow ew;
 
 	return app->run(ew);
 }
