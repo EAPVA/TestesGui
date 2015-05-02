@@ -35,7 +35,7 @@ ExampleWindow::ExampleWindow() :
 	Gtk::TreeModel::Row row;
 	_imgdb_scroll.add(_imgdb_tv);
 	_imgdb_tv.set_vscroll_policy(Gtk::SCROLL_MINIMUM);
-	for(int i = 0; i < 20; i++)
+	for(int i = 0; i < 100; i++)
 	{
 		Gtk::TreeModel::Row row = *_imgdb_liststore->append();
 		row[_imgdb_col.m_col_number] = i + 1;
