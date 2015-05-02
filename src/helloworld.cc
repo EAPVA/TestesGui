@@ -33,16 +33,29 @@ ExampleWindow::ExampleWindow() :
 	// Notebook Page 1: ImageDatabase
 	_imgdb_liststore = Gtk::ListStore::create(_imgdb_col);
 	Gtk::TreeModel::Row row;
-	for(int i = 0; i < 2; i++)
+	_imgdb_scroll.add(_imgdb_tv);
+	_imgdb_tv.set_vscroll_policy(Gtk::SCROLL_MINIMUM);
+	for(int i = 0; i < 20; i++)
 	{
 		Gtk::TreeModel::Row row = *_imgdb_liststore->append();
 		row[_imgdb_col.m_col_number] = i + 1;
 		row[_imgdb_col.m_col_text] = Glib::ustring::format("test ", i);
 
+		//		Gtk::TreeView::Column* pColumn = Gtk::manage(
+		//			new Gtk::TreeView::Column("Icon Name"));
+		//
+		//		// m_columns.icon and m_columns.iconname are columns in the model.
+		//		// pColumn is the column in the TreeView:
+		//		pColumn->pack_end(_imgdb_col.m_col_icon, /* expand= */false);
+		//		pColumn->pack_end(_imgdb_col.m_col_text);
+		//
+		//
+		//		_imgdb_tv.append_column(*pColumn);
+
 		Glib::RefPtr < Gdk::Pixbuf > fullimg;
-		fullimg =
-			Gdk::Pixbuf::create_from_file(
-				"/home/xyko/u/IntrVisComput/opencv-2.4.10/modules/gpu/perf4au/im2_1280x800.jpg");
+		fullimg = Gdk::Pixbuf::create_from_file(
+			"/home/xyko/u/IntrVisComput/opencv-2.4.10"
+				"/modules/gpu/perf4au/im2_1280x800.jpg");
 		Glib::RefPtr < Gdk::Pixbuf > thumbnail = fullimg->scale_simple(144, 144,
 			Gdk::INTERP_BILINEAR);
 		row[_imgdb_col.m_col_icon] = thumbnail;
@@ -55,7 +68,7 @@ ExampleWindow::ExampleWindow() :
 
 	_imgdb_col1.set_border_width(5);
 	_imgdb_col1.pack_start(_imgdb_label_1, Gtk::PACK_SHRINK);
-	_imgdb_col1.pack_start(_imgdb_tv);
+	_imgdb_col1.pack_start(_imgdb_scroll);
 	_imgdb_box.pack_start(_imgdb_col1);
 
 	_imgdb_box.pack_start(_imgdb_label_2);

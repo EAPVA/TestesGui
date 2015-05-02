@@ -31,8 +31,9 @@ protected:
 
 	// treeview
 	Gtk::TreeView _imgdb_tv;
+	Gtk::ScrolledWindow _imgdb_scroll;
 	ImageListColumns _imgdb_col;
-	Glib::RefPtr<Gtk::ListStore> _imgdb_liststore;
+	Glib::RefPtr< Gtk::ListStore > _imgdb_liststore;
 
 	Gtk::Box _imgdb_col1;
 	Gtk::Label _imgdb_label_1;
